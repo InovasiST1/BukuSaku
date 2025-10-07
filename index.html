@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard Indikator Strategis BPS Kota Pekalongan - Akses data dan metadata indikator kunci secara real-time">
+    <title>Buku Saku Indikator Strategis BPS Kota Pekalongan</title>
+    
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo">
+            <!-- Menggunakan logo lokal dari folder assets -->
+            <img src="assets/logo.png" alt="BPS Kota Pekalongan" class="logo-img" />
+            <span>BPS KOTA PEKALONGAN</span>
+        </div>
+        <nav class="nav">
+            <a href="#" data-view="view-home" class="active">Home</a>
+            <a href="#" data-view="view-indikator">Indikator</a>
+            <a href="#" data-view="view-metadata">Metadata</a>
+            <a href="#" data-view="view-about">About</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- HOME VIEW -->
+        <section id="view-home" class="view-section">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Buku Saku Indikator Strategis BPS Kota Pekalongan</h1>
+                    <p>Data Ringkas Kota Pekalongan.
+                    <br> Kumpulan indikator strategis dalam format praktis dan mudah dipahami. <br></p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary" data-view="view-indikator">LIHAT INDIKATOR TERKINI</a>
+                        <a href="#" class="btn btn-secondary" data-view="view-metadata">TELUSURI METADATA</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="bar bar-small"></div>
+                    <div class="bar bar-medium"></div>
+                    <div class="bar bar-large"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDIKATOR VIEW -->
+        <section id="view-indikator" class="view-section hidden">
+            <h2 class="section-title">📊 Dashboard Data Indikator Strategis</h2>
+            
+            <div class="filter-controls">
+                <label for="filter-select">Pilih Indikator:</label>
+                <select id="filter-select">
+                    <option value="all">Tampilkan Semua Indikator</option>
+                </select>
+            </div>
+    
+            <section id="data-section" class="data-grid">
+                <div class="loading">⏳ Memuat data indikator strategis...</div>
+            </section>
+        </section>
+
+        <!-- METADATA VIEW -->
+        <section id="view-metadata" class="view-section hidden">
+            <h2 class="section-title">📋 Metadata Indikator Strategis</h2>
+            
+            <div class="filter-controls">
+                <label for="metadata-select">Pilih Indikator:</label>
+                <select id="metadata-select">
+                    <option value="">Pilih Indikator...</option>
+                </select>
+            </div>
+
+            <!-- Metadata Detail Card -->
+            <div id="metadata-detail-card" class="card-detail-metadata">
+                <h3 id="metadata-title">📄 Metadata Indikator Strategis</h3>
+                <div id="metadata-content">
+                    <p style="color: #999; font-style: italic;">Silakan pilih indikator dari dropdown di atas untuk melihat detail lengkap.</p>
+                </div>
+            </div>
+
+            <!-- Chart Container (Hidden by default) -->
+            <div id="metadata-chart-container" class="chart-container hidden" style="display:none;">
+                <h3 id="chart-title">📈 Grafik Historis</h3>
+                <div id="metadata-chart" style="width: 100%; height: 350px;"></div>
+            </div>
+
+            <!-- Historical Data Table -->
+            <div id="metadata-table-container" class="data-table-container hidden">
+                <h3 id="table-title">📊 Data Historis</h3>
+                <table class="data-table" id="data-history-table"></table>
+            </div>
+        </section>
+
+        <!-- ABOUT VIEW -->
+        <section id="view-about" class="view-section hidden">
+            <div class="bg-white">
+                <h2>ℹ️ Tentang Aplikasi Ini</h2>
+                <div class="space-y-6 text-gray-700">
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Aplikasi <strong>Dashboard Indikator Strategis BPS Kota Pekalongan</strong> dikembangkan untuk menyediakan akses cepat, visualisasi interaktif, dan detail metadata dari data-data kunci yang diterbitkan oleh Badan Pusat Statistik.
+                    </p>
+                    
+                    <div class="grid" style="margin-top: 30px;">
+                        <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2196f3;">
+                            <h3 style="color: #1976d2;">🎯 Tujuan Utama</h3>
+                            <p style="color: #333;">Memfasilitasi pengambilan keputusan yang lebih cepat dan berbasis data bagi pengguna internal dan eksternal.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #4caf50;">
+                            <h3 style="color: #388e3c;">💾 Sumber Data</h3>
+                            <p style="color: #333;">Data diolah secara real-time dari Google Sheets multi-sheet, memastikan informasi selalu up-to-date.</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: 2px solid #ff9800;">
+                            <h3 style="color: #f57c00;">🛠 Teknologi</h3>
+                            <p style="color: #333;">Dibangun dengan HTML5, CSS3 Modern, Google Charts API, dan JavaScript ES6+ untuk performa optimal.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border-radius: 12px; border: 2px solid #9c27b0;">
+                        <h3 style="color: #7b1fa2; margin-bottom: 10px;">✨ Fitur Unggulan</h3>
+                        <ul style="list-style: none; padding-left: 0; color: #333;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(156, 39, 176, 0.1);">✓ Visualisasi data interaktif dengan grafik tren</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(156, 39, 176, 0.1);">✓ Filter dinamis berdasarkan arah perubahan</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(156, 39, 176, 0.1);">✓ Metadata lengkap setiap indikator</li>
+                            <li style="padding: 8px 0;">✓ Responsive design untuk semua perangkat</li>
+                        </ul>
+                    </div>
+                    
+                    <p style="padding-top: 20px; border-top: 2px solid #e0e0e0; color: #666; font-size: 0.95em;">
+                        <strong>Dikembangkan oleh:</strong> Peserta Magang BPS Kota Pekalongan Angkatan 2025<br>
+                        <strong>Versi:</strong> 2.0 (Oktober 2025)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <p style="font-size: 1em; font-weight: 500; color: #3f51b5;">
+                📊 Diolah dari data resmi Badan Pusat Statistik (BPS) Kota Pekalongan
+            </p>
+            <p style="font-size: 0.9em; color: #999; margin-top: 8px;">
+                Inisiatif Peserta Magang Angkatan 2025 | Data diperbarui secara berkala
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+
+</body>
+</html>
