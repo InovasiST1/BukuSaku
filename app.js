@@ -398,10 +398,10 @@ function handleMetadataSelect(event) {
             <h4>Nilai Terkini (${dataDetail.tahun || 'N/A'}):</h4>
             <p style="font-size: 1.2em; font-weight: bold; color: #3f51b5;">${formatValue(dataDetail.nilai, 2)}</p>
 
-            <h4>Penjelasan/Definisi:</h4>
+            <h4>Definisi:</h4>
             ${toListHTML(dataDetail.penjelasan || dataDetail.definisi || 'Tidak Tersedia.')}
 
-            <h4>Perhitungan/Metode:</h4>
+            <h4>Perhitungan:</h4>
             ${toListHTML(dataDetail.perhitungan || dataDetail.metode || 'Tidak Tersedia.')}
 
             <h4>Sumber Indikator:</h4>
@@ -525,3 +525,4 @@ document.addEventListener('DOMContentLoaded', () => {
     showView('view-home');
 
 });
+
