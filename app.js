@@ -407,11 +407,8 @@ function handleMetadataSelect(event) {
             <h4>Sumber Indikator:</h4>
             ${toListHTML(dataDetail.sumber_indikator || dataDetail.sumber || 'Tidak Tersedia.')}
 
-            <h4>Faktor-faktor yang Mempengaruhi:</h4>
-            ${toListHTML(dataDetail['faktor-faktor_yang_mempengaruhi'] || dataDetail.faktor_faktor || dataDetail.faktor || 'Tidak Tersedia.')}
-
-            <h4>Dampak:</h4>
-            ${toListHTML(dataDetail.dampak || 'Tidak Tersedia.')}
+            <h4>Interpretasi Data:</h4>
+            ${toListHTML(dataDetail.interpretasi_data || 'Tidak Tersedia.')}
         `;
         
         // Tampilkan Tabel Historis
@@ -526,4 +523,5 @@ window.addEventListener('resize', resizeChart);
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
     showView('view-home');
+
 });
