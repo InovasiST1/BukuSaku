@@ -410,8 +410,14 @@ function handleMetadataSelect(event) {
             <h4>Perhitungan:</h4>
             ${toListHTML(dataDetail.perhitungan || dataDetail.metode || 'Tidak Tersedia.')}
 
+            <h4>Satuan:</h4>
+            ${toListHTML(dataDetail.satuan || dataDetail.metode || 'Tidak Tersedia.')}
+
             <h4>Sumber Indikator:</h4>
             ${toListHTML(dataDetail.sumber_indikator || dataDetail.sumber || 'Tidak Tersedia.')}
+
+            <h4>Manfaat Indikator:</h4>
+            ${toListHTML(dataDetail.manfaat || dataDetail.metode || 'Tidak Tersedia.')}
 
             <h4>Interpretasi Data:</h4>
             ${toListHTML(dataDetail.interpretasi_data || 'Tidak Tersedia.')}
@@ -534,5 +540,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showView('view-home');
 
 });
+
 
 
