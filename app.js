@@ -220,7 +220,7 @@ function createChartContainer(key) {
 function createCard(data) {
     const perubahanFloat = safeParseFloat(data.selisih || 0); 
     const nilaiFormatted = formatValue(data.nilai, 2); 
-    const indicatorName = '${data.nama || data.sheet_name} (${data.satuan || ''})';
+    const indicatorName = data.nama || data.sheet_name;
     const indicatorKey = data.sheet_name;
 
     const isPositive = perubahanFloat > 0;
@@ -340,7 +340,7 @@ function populateFilterDropdown(indicators) {
     indicators.forEach(item => {
         const option = document.createElement('option');
         option.value = item.sheet_name;
-        option.textContent = `${item.nama || item.sheet_name} (${item.satuan || ''})`;
+        option.textContent = item.nama || item.sheet_name;
 ;
         filterSelect.appendChild(option);
     });
@@ -391,7 +391,7 @@ function handleMetadataSelect(event) {
     metadataTableContainer.classList.add('hidden');
 
     if (dataDetail) { 
-        const indicatorName = `${dataDetail.nama || indicatorKey} (${dataDetail.satuan || ''})`;
+        const indicatorName = dataDetail.nama || indicatorKey;
         metadataTitle.textContent = `Metadata: ${indicatorName}`;
 
         // Konten Metadata Lengkap (gunakan toListHTML untuk memformat numbered / multiline text)
@@ -541,6 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showView('view-home');
 
 });
+
 
 
 
