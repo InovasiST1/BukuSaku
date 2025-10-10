@@ -401,6 +401,12 @@ function handleMetadataSelect(event) {
             <h4>Definisi:</h4>
             ${toListHTML(dataDetail.penjelasan || dataDetail.definisi || 'Tidak Tersedia.')}
 
+            <h4>Satuan:</h4>
+            ${toListHTML(dataDetail.satuan || 'Tidak Tersedia.')}
+
+            <h4>Manfaat:</h4>
+            ${toListHTML(dataDetail.manfaat || 'Tidak Tersedia.')}
+
             <h4>Perhitungan:</h4>
             ${toListHTML(dataDetail.perhitungan || dataDetail.metode || 'Tidak Tersedia.')}
 
@@ -409,6 +415,9 @@ function handleMetadataSelect(event) {
 
             <h4>Interpretasi Data:</h4>
             ${toListHTML(dataDetail.interpretasi_data || 'Tidak Tersedia.')}
+
+            <h4>Link Akses Data:</h4>
+            ${toListHTML(dataDetail.link_akses_data || 'Tidak Tersedia.')}
         `;
         
         // Tampilkan Tabel Historis
@@ -525,4 +534,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showView('view-home');
 
 });
+
 
